@@ -4,8 +4,11 @@ public class Iterativ implements Factorial{
 
 	@Override
 	public long factorial(long n) {
-		// TODO Auto-generated method stub
-		return 0;
+		long x=1;
+		for(int i = 1; i<n; i++){
+			x+=x*i;
+		}
+		return x;
 	}
 
 }
