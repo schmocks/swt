@@ -4,8 +4,10 @@ public class Rekursiv implements Factorial{
 
 	@Override
 	public long factorial(long n) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(n==1){
+			return 1;
+		}
+		return factorial(n-1)*n;
 	}
 
 }
