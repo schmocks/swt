@@ -12,6 +12,13 @@ public class Produkt implements Product{
 		this.id=id;this.description=description;this.price=price;
 	}
 	
+	public Produkt (Product p) {
+		this.id = p.getId();
+		this.price = p.getPrice();
+		this.description = p.getDescription();
+	}
+	
+	
 	
 	@Override
 	public Integer getId() {

@@ -11,19 +11,13 @@ public class Bestellposition {
 	
 	public Bestellposition(String id, Product product , int anzahl) {
 		this.id=id;this.anzahl=anzahl;
-		Produkt xx = product;
-		
-		xx.setDescription(product.getDescription());
-		xx.setPrice(product.getPrice());
+		Product xx = new Produkt(product);
 		this.product=xx;
 		this.preis=product.getPrice().multiply(new BigDecimal(anzahl));
 	}
 
-	private Product cloneProduct(Product product){
-		Product xx = product;
-		xx.setDescription(product.getDescription());
-		return null;
-	}
+	
+	
 	/**
 	 * @return this id
 	 */
