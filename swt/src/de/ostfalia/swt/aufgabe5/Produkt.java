@@ -1,4 +1,4 @@
-package de.ostfalia.swt.aufgabe3;
+package de.ostfalia.swt.aufgabe5;
 
 import java.math.BigDecimal;
 
@@ -6,6 +6,12 @@ public class Produkt implements Product{
 	private Integer id;
 	private BigDecimal price;
 	private String description;
+	
+	
+	public Produkt(Integer id, String description , BigDecimal price) {
+		this.id=id;this.description=description;this.price=price;
+	}
+	
 	
 	@Override
 	public Integer getId() {
