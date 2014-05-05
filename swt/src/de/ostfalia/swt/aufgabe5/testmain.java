@@ -32,7 +32,8 @@ public class testmain {
 		Bestellung best = new Bestellung("12", datum, bestellpositionen);
 	System.out.println(best.getWert());
 		System.out.println(best.getDatum());
-	
+		bestellpositionen = best.getBestellpositionen();
+		bestellpositionen.remove(3);
 		System.out.println(ppp.getClass().hashCode());
 		
 		

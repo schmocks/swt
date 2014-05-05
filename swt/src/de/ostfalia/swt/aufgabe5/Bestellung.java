@@ -40,8 +40,9 @@ public class Bestellung {
 	 * @return the bestellpositionen
 	 */
 	public List<Bestellposition> getBestellpositionen() {
+		@SuppressWarnings("serial")
 		List<Bestellposition> temp = new ArrayList<Bestellposition>(){
-			private static final long serialVersionUID = 1L;
+			//private static final long serialVersionUID = 1L;
 			@Override
 			public Bestellposition remove(int index) {throw new UnsupportedOperationException();};
 			public void add(int index, Bestellposition element){throw new UnsupportedOperationException();}
