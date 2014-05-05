@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
-import java.util.Iterator;
+import java.util.ArrayList;
+
 import java.util.List;
 import org.jdom2.*;
 
@@ -22,22 +23,27 @@ public class XmlIoImpl implements XmlIo {
 
 	@Override
 	public List<Product> readProducts(InputStream in) throws Exception {
-		
-		Document doc =(Document) new SAXBuilder().build(in);
+		List<Product> products = new ArrayList<Product>();
+		Document doc = new SAXBuilder().build(in);
 		Element root = doc.getRootElement();
-		String producte = root.getChild("product").getChildText("id");
-		System.out.println(producte);
-		List <?> pinfo = root.getContent();
-		Iterator<?> It = pinfo.iterator();
-		while ( It.hasNext() )
-		  System.out.println( It.next().toString() );
-		
-		return null;
+		List<Element> xx = root.getChildren("product");
+		for(int i = 0; i<xx.size();i++){
+			int id = Integer.parseInt(xx.get(i).getChildText("id"));
+			String description = xx.get(i).getChildText("description");
+			BigDecimal price = new BigDecimal(xx.get(i).getChildText("price"));
+			products.add(new Product(id, description, price));
+		}
+		return products;
 	}
 
 	@Override
 	public Product getProduct(InputStream in, Integer id) throws Exception {
-		// TODO Auto-generated method stub
+		
+		List<Product> products = readProducts(in);
+		for(int i = 0;i<products.size();i++){
+			if(products.get(i).getId()==id){return products.get(i);}
+		}
+
 		return null;
 	}
 
